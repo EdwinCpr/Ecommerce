@@ -725,6 +725,7 @@ button:disabled {
 .product-flex {
   display: flex;
   justify-content: space-between;
+  padding: .3rem 0rem;
 }
 
 .product-title {
@@ -749,13 +750,16 @@ button:disabled {
 }
 
 .toBuy{
-  border: solid 1px red;
   padding: 0.5rem 2rem;
-  border-radius: 15px;
-  background-color: red;
+  background-color: #203344;
   color: white
 }
 
+.input-quantity {
+  width: 3rem;
+  text-align: center;
+  align-items: center;
+}
 /************ Footer ************/
 
 .footer {

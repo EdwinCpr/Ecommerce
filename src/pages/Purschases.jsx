@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Prueba from '../components/Prueba';
+import PurchaseCard from '../components/PurchasesCard';
 import { getPurchaseThunk } from '../store/slices/purchase.slice';
 
 const Purschases = () => {
@@ -16,7 +16,7 @@ const Purschases = () => {
             </div>
             {
                 purchasess.map((purchase) => (
-                    <Prueba purchase={purchase.cart.products}/>
+                    <PurchaseCard purchase={purchase.cart.products}/>
                 ))
             }
         </div>

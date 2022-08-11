@@ -6,7 +6,6 @@ import "./Style.css"
 import Register from './pages/Register'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import Logout from './components/Logout'
-import Footer from './components/Footer'
 
 function App() {
   const isLoading = useSelector(state => state.isLoading)

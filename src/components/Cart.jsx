@@ -2,24 +2,23 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { cartToggle } from '../store/slices/cart.slice';
-import { buyCar, getCartProducts } from '../store/slices/cartProducts.slice';
+import { buyCar, deleteProduct, getCartProducts } from '../store/slices/cartProducts.slice';
 
 
 const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const cart = useSelector((state) => state.cart)
     useEffect(() => {
         dispatch(getCartProducts())
     },[])
     const products = useSelector((state) => state.cartProducts)
     const purchase = () => {
         dispatch(buyCar())
-        navigate("/purchases")
+        navigate("/")
     }
-
-
-    
+    const delProduct = (id) => {
+        dispatch(deleteProduct(id))
+    }
     return (
         <div className="cart">
             <div className="cart-container">
@@ -38,20 +37,28 @@ const Cart = () => {
                                     <p className="bold">{product.brand}</p>
                                     </div>
                                     <div className="product-icon-delete">
-                                        <button><i className="delete fa-solid fa-trash"></i></button>
+                                        <button onClick={() => delProduct(product.id)}><i className="delete fa-solid fa-trash"></i></button>
                                     </div>
                                 </div>
-                                <div className="product-title">
+                                <div className="product-flex">
+                                    <div className="product-title">
                                         <p className="product-title">{product.title}</p>
                                     </div>
+                                    <div className="product-quantity">
+                                        <input type="text" value={product.productsInCart.quantity} className="input-quantity"/>
+                                    </div>
+                                </div>
                             </div>
                         ))
                     }
                 </div>
                 <div className='container-toBuy' >
-                        <button onClick={purchase} className='toBuy'>
-                            Comprar
-                        </button>
+                    { products.products?.length >= 1 && 
+                    (
+                    <button onClick={purchase} className='toBuy'>
+                        Comprar
+                    </button>
+                    )}
                 </div>
             </div>
         </div>

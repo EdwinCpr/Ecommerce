@@ -1,7 +1,4 @@
-import React from 'react';
-
-const Prueba = ({ purchase }) => {
-    console.log(purchase)
+const PurchaseCard = ({ purchase }) => {
     return (
     <div className="purchases">
         <div className="purchases-container">
@@ -21,4 +18,4 @@ const Prueba = ({ purchase }) => {
     );
 };
 
-export default Prueba;
+export default PurchaseCard;

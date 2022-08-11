@@ -22,9 +22,16 @@ export const getCartProducts = () => (dispatch) => {
 }
 
 export const buyCar = () => (dispatch) => {
-    dispatch (setIsLoading(true))
+    dispatch(setIsLoading(true));
     return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`,{}, getConfig())
         .then(() => dispatch(setProducts([])))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
+export const deleteProduct = (id) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.delete(`https://ecommerce-api-react.herokuapp.com/api/v1/cart/${id}`, getConfig())
+        .then(() => dispatch(setProducts()))
         .finally(() => dispatch(setIsLoading(false)));
 }
 

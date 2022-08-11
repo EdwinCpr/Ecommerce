@@ -20,7 +20,7 @@ const ProductID = () => {
     const [indexTwo, setIndexTwo] =useState(2);
 
     
-    const [productSuggestd, setProductSuggestd] =useState([]);
+    const [productSuggestd, setProductSuggestd] = useState([]);
 
     useEffect(() => {
         const prod = allProduct?.find(productItem => productItem.id === Number(id))
@@ -80,12 +80,10 @@ const ProductID = () => {
     }
 
     const addCar = () => {
-        alert("añadido")
         const car = {
             id: newProduct.id,
             quantity: quantity,
         }
-        console.log(car)
         dispatch(addProductsThunk(car))
     }
 
