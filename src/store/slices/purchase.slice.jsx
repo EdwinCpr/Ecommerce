@@ -22,6 +22,21 @@ export const getPurchaseThunk = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const addProductsThunk = car => (dispatch) => {
+    dispatch (setIsLoading(true))
+    return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/cart`, car, getConfig())
+        .then((res) => dispatch(getPurchaseThunk()))
+        .catch(error=>console.log(error.response))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
+export const buyCar = () => (dispatch) => {
+    dispatch (setIsLoading(true))
+    return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`,{}, getConfig())
+        .then(() => dispatch(setPurchase([])))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const { setPurchase } = purchase.actions;
 
 export default purchase.reducer;

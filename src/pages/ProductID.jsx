@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { InputGroup, Form, Button} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux/';
 import { useParams } from 'react-router-dom';
 import { getHomeThunk } from '../store/slices/home.slice';
+import { addProductsThunk } from '../store/slices/purchase.slice';
 
 
 const ProductID = () => {
     const allProduct = useSelector(state => state.home)
     const [newProduct, setNewProduct] =useState({})
+    const [quantity, setQuantity] = useState({})
+
 
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -75,6 +79,14 @@ const ProductID = () => {
         window.scrollTo(0, 0)
     }
 
+    const addCar = (id) => {
+        alert("añadido")
+        const car = {
+            id: id,
+            quantity: quantity,
+        }
+        dispatch(addProductsThunk(car))
+    }
 
     return (
         <section>
@@ -101,9 +113,23 @@ const ProductID = () => {
                 <div className='price-container'>
                     <p>${newProduct?.price} usd</p>
                 </div>
-                <div className="info-icon-car">
-                    <button className="btn-addcar"><i className="color-white fa-solid fa-cart-shopping icon-width"></i></button>
-                </div>
+
+                <>
+                    <InputGroup className="mb-1 place">
+                        <Form.Control
+                            className='place-Holder'
+                            placeholder="cantidad"
+                            aria-label="cantidad"
+                            aria-describedby="basic-addon2"
+                            value={quantity}
+                            onChange={e => setQuantity(e.target.value)}
+                        />
+                        <Button onClick={addCar} className="add-Car" variant="outline-secondary" id="button-addon2">
+                            Agregar a la compra
+                        </Button>
+                    </InputGroup>
+                </>
+
                 <div className='description-container'>
                     <p> {newProduct?.description} </p>
                 </div>

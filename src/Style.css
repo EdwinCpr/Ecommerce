@@ -642,6 +642,24 @@ button:disabled {
   color: #080808;
 }
 
+.place{
+  padding: 0.5rem 2rem;
+}
+
+.place-Holder{
+  border: solid 1px rgba(128, 128, 128, 0.5);
+  padding: 0.5rem 2rem;
+  outline: none;
+  width: 150px;
+}
+
+.add-Car{
+  border: solid 1px red;
+  padding: 0.5rem 2rem;
+  background-color: red;
+  color: white
+}
+
 /************ Register ***************/
 
 .register {
@@ -724,6 +742,18 @@ button:disabled {
 .delete {
   color: red;
   font-size: 16px;
+}
+
+.container-toBuy{
+  text-align: center;
+}
+
+.toBuy{
+  border: solid 1px red;
+  padding: 0.5rem 2rem;
+  border-radius: 15px;
+  background-color: red;
+  color: white
 }
 
 /************ Footer ************/

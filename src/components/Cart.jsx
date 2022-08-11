@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartToggle } from '../store/slices/cart.slice';
 import { getCartProducts } from '../store/slices/cartProducts.slice';
+import { buyCar } from '../store/slices/purchase.slice';
 
 const Cart = () => {
     const dispatch = useDispatch()
@@ -37,6 +38,11 @@ const Cart = () => {
                             </div>
                         ))
                     }
+                </div>
+                <div className='container-toBuy' >
+                        <button onClick={() =>dispatch(buyCar())} className='toBuy'>
+                            Comprar
+                        </button>
                 </div>
             </div>
         </div>
