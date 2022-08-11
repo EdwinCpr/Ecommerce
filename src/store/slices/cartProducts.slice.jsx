@@ -21,6 +21,13 @@ export const getCartProducts = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const buyCar = () => (dispatch) => {
+    dispatch (setIsLoading(true))
+    return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`,{}, getConfig())
+        .then(() => dispatch(setProducts([])))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const { setProducts } = cartProducts.actions;
 
 export default cartProducts.reducer;

@@ -1,16 +1,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { cartToggle } from '../store/slices/cart.slice';
-import { getCartProducts } from '../store/slices/cartProducts.slice';
-import { buyCar } from '../store/slices/purchase.slice';
+import { buyCar, getCartProducts } from '../store/slices/cartProducts.slice';
+
 
 const Cart = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const cart = useSelector((state) => state.cart)
     useEffect(() => {
         dispatch(getCartProducts())
     },[])
     const products = useSelector((state) => state.cartProducts)
+    const purchase = () => {
+        dispatch(buyCar())
+        navigate("/purchases")
+    }
+
+
+    
     return (
         <div className="cart">
             <div className="cart-container">
@@ -40,7 +49,7 @@ const Cart = () => {
                     }
                 </div>
                 <div className='container-toBuy' >
-                        <button onClick={() =>dispatch(buyCar())} className='toBuy'>
+                        <button onClick={purchase} className='toBuy'>
                             Comprar
                         </button>
                 </div>

@@ -9,7 +9,7 @@ import { addProductsThunk } from '../store/slices/purchase.slice';
 const ProductID = () => {
     const allProduct = useSelector(state => state.home)
     const [newProduct, setNewProduct] =useState({})
-    const [quantity, setQuantity] = useState({})
+    const [quantity, setQuantity] = useState(1)
 
 
     const { id } = useParams();
@@ -79,12 +79,13 @@ const ProductID = () => {
         window.scrollTo(0, 0)
     }
 
-    const addCar = (id) => {
+    const addCar = () => {
         alert("añadido")
         const car = {
-            id: id,
+            id: newProduct.id,
             quantity: quantity,
         }
+        console.log(car)
         dispatch(addProductsThunk(car))
     }
 

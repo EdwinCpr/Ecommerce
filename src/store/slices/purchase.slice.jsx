@@ -26,16 +26,11 @@ export const addProductsThunk = car => (dispatch) => {
     dispatch (setIsLoading(true))
     return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/cart`, car, getConfig())
         .then((res) => dispatch(getPurchaseThunk()))
-        .catch(error=>console.log(error.response))
+        .catch(error=>console.log(error))
         .finally(() => dispatch(setIsLoading(false)));
 }
 
-export const buyCar = () => (dispatch) => {
-    dispatch (setIsLoading(true))
-    return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/purchases`,{}, getConfig())
-        .then(() => dispatch(setPurchase([])))
-        .finally(() => dispatch(setIsLoading(false)));
-}
+
 
 export const { setPurchase } = purchase.actions;
 
