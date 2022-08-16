@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cartToggle } from "../store/slices/cart.slice";
@@ -6,7 +7,7 @@ import Cart from "./Cart";
 const NavBar = () => {
   const dispatch = useDispatch()
   const toggleCart = useSelector((state) => state.cart)
-  const products = useSelector((state) => state.cartProducts)
+  const products = useSelector((state) => state.cartProducts.products?.length)
   const navigate = useNavigate()
   const token = localStorage.getItem("token")
   const logout = () => {
@@ -25,7 +26,7 @@ const NavBar = () => {
               { token === "" ? <button onClick={() => navigate("/login")}><i className="color-white fa-solid fa-user icon-width"></i></button> : <button onClick={logout}><i class="color-white fa-solid fa-arrow-right-from-bracket icon-width"></i></button>}
               { token !== "" && <button onClick={() => navigate("/purchases")}><i className="color-white fa-solid fa-store icon-width"></i></button> }
               <div className="btn-cart">
-                { token !== "" && <button onClick={() => dispatch(cartToggle())}><i className="cart-btn color-white fa-solid fa-cart-shopping icon-width"><span className="counter-product">{products.products?.length}</span></i></button> }
+                { token !== "" && <button onClick={() => dispatch(cartToggle())}><i className="cart-btn color-white fa-solid fa-cart-shopping icon-width"><span className="counter-product">{products}</span></i></button> }
               </div>
               { toggleCart && <Cart/>}
               </div>

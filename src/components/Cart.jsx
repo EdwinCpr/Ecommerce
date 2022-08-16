@@ -4,21 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { cartToggle } from '../store/slices/cart.slice';
 import { buyCar, deleteProduct, getCartProducts } from '../store/slices/cartProducts.slice';
 
-
 const Cart = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    useEffect(() => {
-        dispatch(getCartProducts())
-    },[])
-    const products = useSelector((state) => state.cartProducts)
+    const delProduct = (id) => {
+        dispatch(deleteProduct(id))
+    }
     const purchase = () => {
         dispatch(buyCar())
         navigate("/")
     }
-    const delProduct = (id) => {
-        dispatch(deleteProduct(id))
-    }
+    useEffect(() => {
+        dispatch(getCartProducts())
+    },[delProduct, purchase])
+    const products = useSelector((state) => state.cartProducts)
     return (
         <div className="cart">
             <div className="cart-container">
