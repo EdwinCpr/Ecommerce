@@ -26,7 +26,7 @@ export const addProductsThunk = car => (dispatch) => {
     dispatch (setIsLoading(true))
     return axios.post(`https://ecommerce-api-react.herokuapp.com/api/v1/cart`, car, getConfig())
         .then((res) => dispatch(getPurchaseThunk()))
-        .catch(error=>console.log(error))
+        .catch(error => alert("No se pudo agregar este producto"))
         .finally(() => dispatch(setIsLoading(false)));
 }
 

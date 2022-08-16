@@ -19,7 +19,6 @@ const ProductID = () => {
     const [indexOne, setIndexOne] =useState(0);
     const [indexTwo, setIndexTwo] =useState(2);
 
-    
     const [productSuggestd, setProductSuggestd] = useState([]);
 
     useEffect(() => {
@@ -123,7 +122,7 @@ const ProductID = () => {
                             value={quantity}
                             onChange={e => setQuantity(e.target.value)}
                         />
-                        <Button onClick={addCar} className="add-Car" variant="outline-secondary" id="button-addon2">
+                        <Button onClick={addCar} className="add-Car buy" variant="outline-secondary" id="button-addon2">
                             Agregar a la compra
                         </Button>
                     </InputGroup>

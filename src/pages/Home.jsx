@@ -68,9 +68,6 @@ const Home = () => {
                                         <p className="bold p-small color-blue">PRECIO</p>
                                         <p>{phone.price}$</p>
                                     </div>
-                                    <div className="info-icon-car">
-                                        <button className="btn-addcar"><i className="color-white fa-solid fa-cart-shopping icon-width"></i></button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
