@@ -238,40 +238,6 @@ button:disabled {
   text-align: right;
 }
 
-.filter-price {
-  margin: 2rem 0rem 2rem 0rem;
-}
-
-.price-title {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #000;
-  display: flex;
-  justify-content: space-between;
-}
-
-.price-input {
-  padding-top: 1.5rem;
-}
-
-.input-price {
-  margin-bottom: .25rem;
-  height: 2rem;
-  width: 58%;
-  outline: 0;
-}
-
-.search-price {
-  margin-top: 2rem;
-  background-color: #203344;
-  padding: .70rem 1rem;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.btn-price {
-  text-align: right;
-}
-
 .category-option {
   margin-bottom: .50rem;
   display: block;
@@ -283,14 +249,6 @@ button:disabled {
   border-bottom: 1px solid #000;
   display: flex;
   justify-content: space-between;
-}
-
-.padding-left-inputone {
-  margin-left: 2rem;
-}
-
-.padding-left-inputtwo {
-  margin-left: .70rem;
 }
 
 /************* Login *************/
@@ -495,15 +453,13 @@ button:disabled {
   overflow: hidden;
 }
 
-.data-img img{
+.data-img img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-
-
-.price-container{
+.price-container {
   width: 85%;
   height: 60px;
   display: flex;

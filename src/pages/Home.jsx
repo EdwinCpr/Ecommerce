@@ -48,7 +48,7 @@ const Home = () => {
             </div>
             <div className="btn-filter">
                 <p className="bold">Total de productos: <span className="color-blue">{phones.length}</span></p>
-                <button className="hiddenbtn" onClick={() => dispatch(toggle())}><i className="fa-solid fa-filter icon-filter"></i>Filtros</button>
+                <button className="hiddenbtn" onClick={() => dispatch(toggle())}><i className="fa-solid fa-filter icon-filter"></i>Filtrar categoria</button>
             </div>
             <Filter categories={categories}/>
             <div className="list-product">

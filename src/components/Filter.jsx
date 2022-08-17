@@ -17,31 +17,11 @@ const Filter = ({ categories }) => {
                     <button onClick={() => dispatch(toggle())} className="hiddenbtn"><i className="fa-solid fa-x"></i></button>
                 </div>
                 <div className="filter-title mt-1rem">
-                    <h2>Filtros</h2>
-                </div>
-                <div className="filter-price">
-                    <div className="price-title">
-                        <h3>Precio</h3>
-                        {statePrice ? <button><i className="fa-solid fa-angle-down" onClick={() => dispatch(togglePrice())}></i></button> : <button><i className="fa-solid fa-angle-up" onClick={() => dispatch(togglePrice())}></i></button> }
-                    </div>
-                    {statePrice && (
-                        <div className="price-input">
-                            <form action="">
-                                <label htmlFor="">De:</label>
-                                <input type="number" className="input-price padding-left-inputone"/>
-                                <br/>
-                                <label htmlFor="">Hasta:</label>
-                                <input type="number" className="mt-1rem input-price padding-left-inputtwo"/>
-                                <div className="btn-price">
-                                    <button className="search-price color-white">Filtrar precios</button>
-                                </div>
-                            </form>
-                        </div>
-                    )}
+                    <h2>Filtro por categoria</h2>
                 </div>
                 <div className="filter-category">
                     <div className="category-title">
-                        <h3>Categorias</h3>
+                        <h3></h3>
                         {stateCategory ? <button><i className="fa-solid fa-angle-down" onClick={() => dispatch(toggleCategory())}></i></button> : <button><i className="fa-solid fa-angle-up" onClick={() => dispatch(toggleCategory())}></i></button> }
                     </div>
                     {stateCategory && (
